@@ -45,4 +45,4 @@ let gooi = () => {
 
     }
 
-document.getElementById("throw").onclick = function(){gooi()}
+document.addEventListener("click", gooi)
