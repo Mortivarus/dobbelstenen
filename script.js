@@ -31,20 +31,18 @@ let gooi = () => {
         
     });
 
-    function generateTableHead(table, data){
-        let thead = table.createTHead();
-        let row = thead.insertRow();
-        for (let key of data){
-            let th = document.createElement("th");
-            let text = document.createTextNode(key);
-            th.appendChild(text);
-            row.appendChild(th);
-        }
-    }
-    let table = document.querySelector("table");
-    let data = Object.keys(worp[0]);
-    generateTableHead(table, data);
+    const tableFill = function(array){
+        document.getElementById("dp1").innerHTML = array[1]
+        document.getElementById("dp2").innerHTML = array[2]
+        document.getElementById("dp3").innerHTML = array[3]
+        document.getElementById("dp4").innerHTML = array[4]
+        document.getElementById("dp5").innerHTML = array[5]
+        document.getElementById("dp6").innerHTML = array[6]
 
-}
+    }
+
+    tableFill(worp)
+
+    }
 
 document.getElementById("throw").onclick = function(){gooi()}
