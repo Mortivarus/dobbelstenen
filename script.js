@@ -9,40 +9,17 @@ let gooi = () => {
         6: 0
     }
 
-    arr = []
+    const uitkomst = []
     console.log("Er is gegooid")
     for (i = 0; i < 8; i++){
-        arr.push(Math.floor(Math.random()*6))
-    }
-    arr.forEach(element => {
-        if (element === 1){
-            worp[1] ++
-        } else if(element === 2){
-            worp[2] ++
-        } else if(element === 3){
-            worp[3] ++
-        } else if(element === 4){
-            worp[4] ++
-        } else if(element === 5){
-            worp[5] ++
-        } else{
-            worp[6] ++
-        }
-        
-    });
-
-    const tableFill = function(array){
-        document.getElementById("dp1").innerHTML = array[1]
-        document.getElementById("dp2").innerHTML = array[2]
-        document.getElementById("dp3").innerHTML = array[3]
-        document.getElementById("dp4").innerHTML = array[4]
-        document.getElementById("dp5").innerHTML = array[5]
-        document.getElementById("dp6").innerHTML = array[6]
-
+        uitkomst.push(Math.floor(Math.random()*6))
     }
 
-    tableFill(worp)
-
+    for (let NUMBER in worp) { //Iterates over each item in object 'worp'
+        const COUNTNUMBER = uitkomst.filter(geworpen => geworpen == NUMBER).length; //Applies filter to array 'uitkomst' for number of worp, save length to a variable
+        worp[NUMBER] = COUNTNUMBER; //Append total of that number to the corresponding object key
+        document.getElementById(`dieRow${NUMBER}`).innerHTML = COUNTNUMBER; //Append object totals to the corresponding table rows
     }
+}
 
 document.addEventListener("click", gooi)
